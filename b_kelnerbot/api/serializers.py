@@ -116,3 +116,11 @@ class KelnerOrdersSerializer(serializers.ModelSerializer):
             'order_started',
             'order_finished',
         )
+
+
+class CustomerOrderSerializer(serializers.Serializer):
+    table_num = serializers.CharField(max_length=5)
+    ordered_at = serializers.DateTimeField()
+    final_amount = serializers.FloatField()
+    orders = serializers.JSONField()
+    

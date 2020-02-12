@@ -19,7 +19,12 @@ export default class Orders extends Component {
     this.setState({customer_ordered_table_number: event.target["tableNumber"].value});
     this.setState({transactionDate:this.fulldate});
     console.log(this.state.customer_ordered_table_number);
-    
+    axios.post('http://localhost:8000/hello/', {
+        table_num : "555",
+        ordered_at : "2020-02-03 00:00:00",
+        final_amount : 22.0,
+        orders : this.props.orders
+    }).then(response => (this.info = response.data));
     alert("Your order accepted")
   }
 
